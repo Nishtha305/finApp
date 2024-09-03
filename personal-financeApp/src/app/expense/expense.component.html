@@ -1,0 +1,33 @@
+<app-header></app-header>
+<div class="expenses-container">
+    <h2>Manage Expenses</h2>
+    <form (ngSubmit) = "addExpense()" #expenseForm="ngForm">
+        <div>
+            <label for="category">Category:</label>
+            <select id="category" name="category" [(ngModel)]="newExpense.category" required>
+                <option *ngFor="let category of categories" [value]="category">{{category}}</option>
+            </select>
+        </div>
+
+        <div>
+            <label for="amount">Amount:</label>
+            <input id="amount" name="amount" type="number" [(ngModel)]="newExpense.amount" required />
+        </div>
+
+        <div>
+            <label for="date">Date:</label>
+            <input id="date" name="date" type="date" [(ngModel)]="newExpense.date" required />
+        </div>
+        
+        <button type="submit">Add Expense</button>
+    </form>
+
+    <div class="expense-list">
+        <h3>Expense List</h3>
+        <ul>
+            <li *ngFor="let expense of expenses">
+                {{expense.date |date:'shortDate'}} - {{expense.category}} : {{expense.amount}}
+            </li>
+        </ul>
+    </div>
+</div>

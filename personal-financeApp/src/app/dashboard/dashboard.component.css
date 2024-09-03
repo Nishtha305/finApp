@@ -1,0 +1,9 @@
+/* dashboard.component.css */
+.dashboard-container {
+    padding-top: 60px; /* Space for the header */
+  }
+  
+  .main-content {
+    padding: 20px;
+  }
+  
